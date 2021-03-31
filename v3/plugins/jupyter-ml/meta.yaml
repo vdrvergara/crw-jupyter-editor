@@ -1,0 +1,32 @@
+apiVersion: v2
+publisher: jupyter-ml
+name: jupyter
+version: latest
+type: Che Editor
+displayName: Jupyter Notebook
+title: Jupyter Notebook as Editor for Eclipse Che
+description: Jupyter Notebook as Editor for Eclipse Che
+icon: /v3/images/eclipse-che-logo.png
+category: Editor
+repository: 'https://github.com/ws-skeleton/che-editor-jupyter/'
+firstPublicationDate: '2021-03-31'
+latestUpdateDate: '2021-03-31'
+spec:
+  endpoints:
+    - name: jupyter
+      public: true
+      targetPort: 8888
+      attributes:
+        protocol: http
+        type: ide
+  containers:
+    - name: jupyter-notebook
+      image: >-
+        quay.io/mlrun/jupyter:0.6.2-rc9@sha256:63551610edc0020d1046e6025a8081ebd06f9902d230f375e701e41c664a82bb
+      env:
+        - name: JUPYTER_NOTEBOOK_DIR
+          value: /projects
+      mountSources: true
+      ports:
+        - exposedPort: 8888
+      memoryLimit: 512M
