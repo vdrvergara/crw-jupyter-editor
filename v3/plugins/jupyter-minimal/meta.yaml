@@ -1,10 +1,10 @@
 apiVersion: v2
-publisher: jupyter-min
-name: jupyter
+publisher: jupyter-minimal
+name: jupyter-minimal
 version: latest
 type: Che Editor
-displayName: Jupyter Notebook
-title: Jupyter Notebook as Editor for Eclipse Che
+displayName: Jupyter Notebook Minimal
+title: Jupyter Notebook Minimal as Editor for Eclipse Che
 description: Jupyter Notebook as Editor for Eclipse Che
 icon: /v3/images/eclipse-che-logo.png
 category: Editor
@@ -21,7 +21,8 @@ spec:
         type: ide
   containers:
     - name: jupyter-notebook
-      image: quay.io/jupyteronopenshift/s2i-minimal-notebook-py36:dependabot_pip_minimal-notebook_notebook-6.1.5
+      image: >-
+        quay.io/jupyteronopenshift/s2i-minimal-notebook-py36@sha256:f6dcb3f9a53fac58156a609643fb6c6f3eb34ecf322f18a4dfd06b746a5d4618
       env:
         - name: JUPYTER_NOTEBOOK_DIR
           value: /projects
