@@ -1,0 +1,13 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: jupyter-
+components:
+  -
+    type: cheEditor
+    reference: https://raw.githubusercontent.com/vdrvergara/crw-jupyter-editor/main/v3/plugins/jupyter-ml/meta.yaml
+    memoryLimit: 2Gi
+  -
+    type: dockerimage
+    alias: jupyter-minimal
+    image: quay.io/jupyteronopenshift/s2i-minimal-notebook-py36:dependabot_pip_minimal-notebook_notebook-6.1.5
+    memoryLimit: 2Gi

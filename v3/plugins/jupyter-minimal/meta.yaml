@@ -1,5 +1,5 @@
 apiVersion: v2
-publisher: jupyter-ml
+publisher: jupyter-min
 name: jupyter
 version: latest
 type: Che Editor
@@ -21,8 +21,7 @@ spec:
         type: ide
   containers:
     - name: jupyter-notebook
-      image: >-
-        quay.io/mlrun/jupyter:0.6.2-rc9@sha256:63551610edc0020d1046e6025a8081ebd06f9902d230f375e701e41c664a82bb
+      image: quay.io/jupyteronopenshift/s2i-minimal-notebook-py36:dependabot_pip_minimal-notebook_notebook-6.1.5
       env:
         - name: JUPYTER_NOTEBOOK_DIR
           value: /projects
